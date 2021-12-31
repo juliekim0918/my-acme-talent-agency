@@ -33,7 +33,6 @@ class SkillsSelect extends Component {
     return (
       <div className="basis-full flex flex-row gap-4 px-8 mt-3">
         <select
-          placeholder="select a home"
           className="grow px-4 py-3 rounded-full"
           onChange={(evt) => handleChange(evt)}
         >

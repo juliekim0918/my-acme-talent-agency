@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Sidebar from "./Sidebar";
 import { Switch, Route } from "react-router-dom";
 import Artists from "./Artists";
+import Skills from "./Skills";
 
 class Main extends Component {
   constructor() {
@@ -22,6 +23,11 @@ class Main extends Component {
               path="/clients"
               exact
               render={(props) => <Artists {...props} />}
+            />
+            <Route
+              path="/skills"
+              exact
+              render={(props) => <Skills {...props} />}
             />
             <Route path="/" exact render={(props) => <Artists {...props} />} />
           </Switch>

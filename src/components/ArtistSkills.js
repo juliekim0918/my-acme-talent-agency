@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { deleteArtistSkill } from "../store/artists";
 import { connect } from "react-redux";
-import { X, PlusCircle } from "react-feather";
+import { X } from "react-feather";
 import SkillsSelect from "./SkillsSelect";
 
 const VIEW = "VIEW";

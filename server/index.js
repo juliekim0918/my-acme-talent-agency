@@ -6,12 +6,14 @@ const PORT = process.env.PORT || 3030;
 const { db, seed } = require("./db");
 
 app.use(volleyball);
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.static(path.join(__dirname, "../dist/")));
 app.use("/api/skills", require("./api/skills"));
 app.use("/api/artists", require("./api/artists"));
 
-app.get("/", (req, res, next) => {
+app.get("/*", (req, res, next) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
