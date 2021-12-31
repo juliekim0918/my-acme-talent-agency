@@ -1,5 +1,4 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
-const { ProvidePlugin } = require("webpack");
 
 module.exports = {
   content: ["./src/*.{html,js}", "./src/**/*.{html,js}"],
@@ -10,11 +9,6 @@ module.exports = {
       },
       colors: {
         transparent: "transparent",
-        beige: "#faf4d3",
-        gold: "#D1AC00",
-        peach: "#F6BE9A",
-        "dark-green": "#004643",
-        black: "#0C1618",
         "light-grey": "#FAFAFA",
       },
       fontFamily: {
@@ -26,4 +20,5 @@ module.exports = {
       center: true,
     },
   },
+  plugins: [require("@tailwindcss/forms")],
 };

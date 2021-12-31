@@ -1,4 +1,5 @@
 const db = require("./db");
+const faker = require("faker");
 const Artist = require("./Artist");
 const Skill = require("./Skill");
 

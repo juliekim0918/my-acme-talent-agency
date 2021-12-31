@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getArtists } from "../store/artists";
-import { PhoneCall, Inbox } from "react-feather";
+import ArtistCard from "./ArtistCard";
+import { changeCurrArtist } from "../store/currArtist";
 
 class Artists extends Component {
   constructor() {
@@ -12,65 +13,37 @@ class Artists extends Component {
     this.props.getArtists();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.match.params.id !== this.props.match.params.id) {
+      this.props.match.params.id
+        ? this.props.changeCurrArtist(this.props.match.params.id * 1)
+        : this.props.changeCurrArtist(-1);
+    }
+  }
+
   render() {
     const { artists } = this.props;
     return (
-      <div className="absolute top-0 right-0 left-0 ml-40 p-10">
-        <div className="text-5xl font-semibold">Acme Talent Agency</div>
-        <div className="md:grid md:grid-cols-3 flex flex-col my-10 gap-10">
-          {artists.map((artist) => {
-            return (
-              <div
-                className="text-center border-2 border-neutral-200 rounded-md"
-                key={artist.id}
-              >
-                <img
-                  src={artist.avatarUrl}
-                  className="w-32 m-auto my-5"
-                  alt=""
-                />
-                <div className="text-2xl">{artist.name}</div>
-                <div className="p-5 flex flex-row gap-3 justify-center flex-wrap">
-                  {artist.skills.map((skill) => {
-                    return (
-                      <div
-                        key={skill.id}
-                        className="bg-violet-200 rounded-full text-sm self-center p-3"
-                      >
-                        {skill.name}
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="border-t-2 border-neutral-200 mt-5">
-                  <div className="flex flex-row justify-around">
-                    <div className="flex flex-row p-5 w-full ">
-                      <PhoneCall className="mr-2" />
-                      Call
-                    </div>
-                    <div className="flex flex-row p-5 w-full border-l-2">
-                      <Inbox className="mr-2" />
-                      Email
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+      <div className="md:grid md:grid-cols-3 flex flex-col my-10 gap-10">
+        {artists.map((artist) => {
+          return <ArtistCard artist={artist} key={artist.id} />;
+        })}
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return state;
+const mapStateToProps = ({ artists, currArtist }) => {
+  return { artists, currArtist };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     getArtists: () => {
       dispatch(getArtists());
+    },
+    changeCurrArtist: (id) => {
+      dispatch(changeCurrArtist(id));
     },
   };
 };

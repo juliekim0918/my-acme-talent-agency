@@ -16,6 +16,14 @@ export const getArtists = () => {
   };
 };
 
+export const deleteArtistSkill = (artistId, skillId) => {
+  return async (dispatch) => {
+    await axios.delete(`/api/artists/${artistId}/${skillId}`);
+    const { data: artists } = await axios.get("/api/artists");
+    dispatch(_getArtists(artists));
+  };
+};
+
 export default (state = [], action) => {
   switch (action.type) {
     case GET_ARTISTS:

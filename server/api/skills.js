@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express.Router();
-const { Artist, Skill } = require("../db");
+const { Artist, Skill, Artist_Skill } = require("../db");
 
 app.get("/", async (req, res, next) => {
   try {
@@ -10,6 +10,5 @@ app.get("/", async (req, res, next) => {
     next(error);
   }
 });
-
 
 module.exports = app;
