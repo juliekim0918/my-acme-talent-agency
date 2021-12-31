@@ -8,7 +8,7 @@ class Sidebar extends Component {
 
   render() {
     return (
-      <div className="md:h-screen md:w-40 w-screen shadow-lg fixed z-20 bg-white px-5">
+      <div className="md:h-screen md:w-40 w-screen shadow-lg fixed z-10 bg-white px-5">
         <div className="flex md:flex-col md:pt-10 flex-row items-center">
           <Link to="/">
             <img src="/logo.png" className="w-20 md:mb-10" alt="" />

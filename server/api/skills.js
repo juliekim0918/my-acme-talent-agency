@@ -14,9 +14,17 @@ app.get("/", async (req, res, next) => {
 app.put("/:skillId", async (req, res, next) => {
   try {
     const skill = await Skill.findByPk(req.params.skillId);
-    console.log(req.body);
     await skill.update(req.body);
     res.send(skill);
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.post("/", async (req, res, next) => {
+  try {
+    const newSkill = await Skill.create(req.body);
+    res.send(newSkill);
   } catch (error) {
     next(error);
   }

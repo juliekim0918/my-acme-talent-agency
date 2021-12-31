@@ -1,5 +1,6 @@
 import React from "react";
 import SkillRows from "./SkillRows";
+import SkillSlideover from "./SkillSlideover";
 
 const Skills = () => {
   return (
@@ -29,9 +30,7 @@ const Skills = () => {
           <SkillRows />
         </table>
       </div>
-      <button className="w-fit bg-blue-700 text-white rounded-full py-3 px-5 shadow">
-        + Add a skill
-      </button>
+      <SkillSlideover />
     </div>
   );
 };

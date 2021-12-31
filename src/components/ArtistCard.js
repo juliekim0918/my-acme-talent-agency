@@ -44,14 +44,20 @@ class ArtistCard extends Component {
         </div>
         <div className="border-t-2 absolute left-0 right-0 bottom-0 border-neutral-200 mt-5">
           <div className="flex flex-row justify-around">
-            <div className="flex flex-row p-5 w-full ">
+            <a
+              className="flex flex-row p-5 w-full "
+              href={`tel:${artist.phone}`}
+            >
               <PhoneCall className="mr-2" />
               Call
-            </div>
-            <div className="flex flex-row p-5 w-full border-l-2">
+            </a>
+            <a
+              className="flex flex-row p-5 w-full border-l-2"
+              href={`mailto:${artist.email}`}
+            >
               <Inbox className="mr-2" />
               Email
-            </div>
+            </a>
           </div>
         </div>
       </div>

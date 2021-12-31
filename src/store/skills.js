@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const GET_SKILLS = "GET_SKILLS";
-const EDIT_SKILL = "EDIT_SKILL";
 
 const _getSkills = (skills) => {
   return {
@@ -20,6 +19,14 @@ export const getSkills = () => {
 export const editSkill = (skillId, name) => {
   return async (dispatch) => {
     await axios.put(`/api/skills/${skillId}`, { name });
+    const { data: skills } = await axios.get("/api/skills");
+    dispatch(_getSkills(skills));
+  };
+};
+
+export const addSkill = (name) => {
+  return async (dispatch) => {
+    await axios.post("/api/skills", { name });
     const { data: skills } = await axios.get("/api/skills");
     dispatch(_getSkills(skills));
   };

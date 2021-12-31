@@ -1,7 +1,7 @@
 const db = require("./db");
 const Sequelize = require("sequelize");
 const {
-  DataTypes: { STRING },
+  DataTypes: { STRING, INTEGER },
 } = Sequelize;
 
 const Artist = db.define("artist", {
@@ -11,6 +11,12 @@ const Artist = db.define("artist", {
     unique: true,
   },
   avatarUrl: {
+    type: STRING,
+  },
+  phone: {
+    type: STRING,
+  },
+  email: {
     type: STRING,
   },
 });
