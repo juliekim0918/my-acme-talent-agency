@@ -4,9 +4,11 @@ import thunk from "redux-thunk";
 import artists from "./artists";
 import mode from "./mode";
 import currArtist from "./currArtist";
+import skills from "./skills";
 
 const reducer = combineReducers({
   artists,
+  skills,
   currArtist,
   mode,
 });

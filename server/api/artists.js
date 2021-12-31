@@ -26,4 +26,16 @@ app.delete("/:artistId/:skillId", async (req, res, next) => {
   }
 });
 
+app.put("/:artistId/:skillId", async (req, res, next) => {
+  try {
+    const newSkill = await Artist_Skill.create({
+      artistId: req.params.artistId,
+      skillId: req.params.skillId,
+    });
+    res.send(newSkill);
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = app;

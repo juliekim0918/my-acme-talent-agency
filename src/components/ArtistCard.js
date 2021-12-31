@@ -15,9 +15,8 @@ class ArtistCard extends Component {
 
   render() {
     const { changeMode, currArtist, artist, mode } = this.props;
-    console.log(currArtist, "this is the currentArtist!!!!");
     return (
-      <div className="relative text-center border-2 border-neutral-200 rounded-md">
+      <div className="relative text-center border-2 border-neutral-200 pb-20 rounded-md">
         <button
           className="absolute right-0 bg-light-grey rounded-md max-w-max p-2 m-3 h-fit"
           onClick={() => {
@@ -43,7 +42,7 @@ class ArtistCard extends Component {
         <div>
           <ArtistSkills artist={artist} />
         </div>
-        <div className="border-t-2 border-neutral-200 mt-5">
+        <div className="border-t-2 absolute left-0 right-0 bottom-0 border-neutral-200 mt-5">
           <div className="flex flex-row justify-around">
             <div className="flex flex-row p-5 w-full ">
               <PhoneCall className="mr-2" />

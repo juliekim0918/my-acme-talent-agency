@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { deleteArtistSkill } from "../store/artists";
 import { connect } from "react-redux";
 import { X, PlusCircle } from "react-feather";
+import SkillsSelect from "./SkillsSelect";
 
 const VIEW = "VIEW";
 const EDIT = "EDIT";
@@ -27,19 +28,7 @@ const ArtistSkills = ({ artist, currArtist, deleteArtistSkill, mode }) => {
         );
       })}
       {currArtist === artist.id && mode === EDIT ? (
-        <div className="basis-full flex flex-row gap-4 px-8 mt-3">
-          <select
-            placeholder="select a home"
-            className="grow px-4 py-3 rounded-full"
-          >
-            <option disabled value="">
-              Add a skill
-            </option>
-          </select>
-          <button className="self-center bg-blue-700 p-3 rounded-full text-white">
-            <PlusCircle />
-          </button>
-        </div>
+        <SkillsSelect artist={artist} />
       ) : (
         ""
       )}

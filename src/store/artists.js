@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getSkills } from "./skills";
 
 const GET_ARTISTS = "GET_ARTISTS";
 
@@ -19,6 +20,14 @@ export const getArtists = () => {
 export const deleteArtistSkill = (artistId, skillId) => {
   return async (dispatch) => {
     await axios.delete(`/api/artists/${artistId}/${skillId}`);
+    const { data: artists } = await axios.get("/api/artists");
+    dispatch(_getArtists(artists));
+  };
+};
+
+export const addArtistSkill = (artistId, skillId) => {
+  return async (dispatch) => {
+    await axios.put(`/api/artists/${artistId}/${skillId}`);
     const { data: artists } = await axios.get("/api/artists");
     dispatch(_getArtists(artists));
   };
