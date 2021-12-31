@@ -1,7 +1,6 @@
 const express = require("express");
-const { Rss } = require("react-feather");
 const app = express.Router();
-const { Artist, Skill, Artist_Skill } = require("../db");
+const { Artist, Skill } = require("../db");
 
 app.get("/", async (req, res, next) => {
   try {
